@@ -68,6 +68,9 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
     # Create figure
     fig, ax = plt.subplots(figsize=(12, 6))
     
+    # Create lists to populate the legend
+    legend_elements = []
+    
     # Plot dots for each event
     scatter = ax.scatter(
         df_sorted["timeline_date"], 
@@ -112,32 +115,51 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
             )
     
     # Draw duration lines for each position
+    completed_added = False
+    ongoing_added = False
+    
     for i, row in df_sorted.iterrows():
         if 'numeric_start' in row and 'numeric_end' in row:
+            # Determine line style based on whether position is open-ended
+            is_open_ended = 'is_open_ended' in row and row['is_open_ended']
+            linestyle = 'dashed' if is_open_ended else 'solid'
+            
             # Draw horizontal line indicating position duration
-            ax.plot(
+            line = ax.plot(
                 [row['numeric_start'], row['numeric_end']], 
                 [row['y_adjusted'], row['y_adjusted']], 
                 color=row['color'], 
-                linewidth=2, 
-                alpha=0.6,
+                linewidth=3, 
+                alpha=0.7,
+                linestyle=linestyle,
                 zorder=3
-            )
+            )[0]
             
-            # For open-ended positions, add a small arrow at the end
-            if 'is_open_ended' in row and row['is_open_ended']:
-                ax.annotate(
-                    '', 
-                    xy=(row['numeric_end'], row['y_adjusted']), 
-                    xytext=(row['numeric_end'] - 1, row['y_adjusted']),
-                    arrowprops=dict(
-                        arrowstyle='->',
-                        color=row['color'],
-                        alpha=0.6,
-                        lw=2
-                    ),
-                    zorder=4
+            # Add to legend only once for each type
+            if is_open_ended and not ongoing_added:
+                legend_elements.append(
+                    plt.Line2D([0], [0], color='black', lw=2, linestyle='dashed', 
+                               label='Ongoing/No End Date')
                 )
+                ongoing_added = True
+            elif not is_open_ended and not completed_added:
+                legend_elements.append(
+                    plt.Line2D([0], [0], color='black', lw=2, 
+                               label='Completed Position')
+                )
+                completed_added = True
+    
+    # Add metatype colors to legend
+    all_metatypes = list(metatype_to_y.keys())
+    metatypes_used = df_sorted["metatype"].unique()
+    color_map = create_color_mapping(metatypes_used)
+    
+    for metatype in sorted(all_metatypes):
+        color = color_map.get(metatype, color_map.get('other', '#7f7f7f'))
+        legend_elements.append(
+            plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=color,
+                      markeredgecolor='black', markersize=8, label=metatype.capitalize())
+        )
     
     # Format y-ticks to align with base metatype labels - fixed method
     ytick_locs = list(metatype_to_y.values())
@@ -145,7 +167,7 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
     
     # Set the ticks and then manually set the labels (compatible with newer matplotlib)
     ax.set_yticks(ytick_locs)
-    ax.set_yticklabels(ytick_labels)
+    ax.set_yticklabels([label.capitalize() for label in ytick_labels])
     
     # Set labels and title
     ax.set_xlabel("Year")
@@ -168,6 +190,10 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
     # Add a light background
     ax.set_facecolor('#f8f9fa')
     
+    # Add legend at the top
+    ax.legend(handles=legend_elements, loc='upper center', bbox_to_anchor=(0.5, 1.15),
+              ncol=min(5, len(legend_elements)), frameon=True, fancybox=True, shadow=True)
+    
     plt.tight_layout()
     
     # Convert plot to image bytes
@@ -176,7 +202,6 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
     buf.seek(0)
     
     return fig, buf.getvalue()
-
 
 def plot_metatype_distribution(df: pd.DataFrame) -> Tuple[Figure, bytes]:
     """Create a visualization showing distribution of career events by metatype."""

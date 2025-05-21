@@ -161,9 +161,33 @@ def prepare_timeline_data(data: Dict[str, Any]) -> Tuple[pd.DataFrame, Dict[str,
     # Create DataFrame
     df = pd.DataFrame(processed_events)
     
-    # Map metatypes to y-positions
-    unique_metatypes = sorted(df["metatype"].unique())
-    metatype_to_y = {metatype: i for i, metatype in enumerate(unique_metatypes)}
+    # Set a standard order for metatypes to ensure consistency across visualizations
+    standard_metatypes = [
+        'academic',
+        'govt',
+        'io',
+        'private',
+        'think_tank',
+        'ngo',
+        'foundation',
+        'honor',
+        'media',
+        'other'
+    ]
+    
+    # Create a sorted list of metatypes in standard order
+    used_metatypes = df["metatype"].unique().tolist()
+    
+    # Sort metatypes according to the standard order
+    sorted_metatypes = [m for m in standard_metatypes if m in used_metatypes]
+    
+    # Add any metatypes not in the standard list at the end
+    for m in used_metatypes:
+        if m not in sorted_metatypes:
+            sorted_metatypes.append(m)
+    
+    # Map metatypes to y-positions based on the sorted list
+    metatype_to_y = {metatype: i for i, metatype in enumerate(sorted_metatypes)}
     
     # Add y-position column
     df["y_pos"] = df["metatype"].map(metatype_to_y)
