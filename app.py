@@ -135,9 +135,9 @@ def display_visualizations(data: Dict[str, Any]):
     # Create and display career timeline visualization
     st.subheader(f"Career Timeline: {data['person']['name']}")
     
-    # Create a clean visualization with the filtered data
-    fig, _ = viz.plot_career_timeline(filtered_df, metatype_to_y)
-    st.pyplot(fig)
+    # Create a clean interactive visualization with the filtered data
+    fig = viz.plot_career_timeline_plotly(filtered_df, metatype_to_y)
+    st.plotly_chart(fig, use_container_width=True)
     
     # Find longest role
     longest_role, longest_duration = viz.find_longest_role(filtered_df)

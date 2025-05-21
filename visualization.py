@@ -4,6 +4,9 @@ import numpy as np
 from typing import Dict, Tuple, List, Any, Optional
 import io
 from matplotlib.figure import Figure
+import plotly.graph_objects as go
+import plotly.express as px
+from plotly.subplots import make_subplots
 
 
 def create_color_mapping(metatypes: List[str]) -> Dict[str, str]:
@@ -60,7 +63,147 @@ def prepare_visualization_data(df: pd.DataFrame) -> pd.DataFrame:
     return df_sorted
 
 
-def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> Tuple[Figure, bytes]:
+def plot_career_timeline_plotly(df: pd.DataFrame, metatype_to_y: Dict[str, float]):
+    """Create an interactive career timeline visualization with hover information using Plotly."""
+    # Prepare data with adjusted positions for overlapping events
+    df_sorted = prepare_visualization_data(df)
+    
+    # Create figure
+    fig = go.Figure()
+    
+    # Get a color map for all metatypes
+    unique_metatypes = df_sorted["metatype"].unique()
+    color_map = create_color_mapping(unique_metatypes)
+    
+    # Create a mapping of metatypes to their index (for y-axis positioning)
+    metatype_indices = {mt: i for i, mt in enumerate(sorted(unique_metatypes))}
+    
+    # Add position duration lines
+    for i, row in df_sorted.iterrows():
+        if 'numeric_start' in row and 'numeric_end' in row:
+            # Determine line style based on whether position is open-ended
+            is_open_ended = 'is_open_ended' in row and row['is_open_ended']
+            dash = 'dash' if is_open_ended else None
+            
+            # Create hover text
+            hover_text = f"<b>{row['role']}</b><br>" + \
+                         f"<b>Organization:</b> {row['organization']}<br>" + \
+                         f"<b>Type:</b> {row['metatype'].capitalize()}<br>"
+            
+            if is_open_ended:
+                hover_text += "<b>Duration:</b> Ongoing/No End Date"
+            else:
+                duration = row['numeric_end'] - row['numeric_start']
+                hover_text += f"<b>Duration:</b> {duration:.1f} years"
+            
+            # Add line for position duration
+            fig.add_trace(go.Scatter(
+                x=[row['numeric_start'], row['numeric_end']],
+                y=[row['y_adjusted'], row['y_adjusted']],
+                mode='lines',
+                line=dict(color=row['color'], width=4, dash=dash),
+                showlegend=False,
+                hoverinfo='none'
+            ))
+            
+            # Add marker for position start
+            fig.add_trace(go.Scatter(
+                x=[row['timeline_date']],
+                y=[row['y_adjusted']],
+                mode='markers',
+                marker=dict(
+                    color=row['color'],
+                    size=12,
+                    line=dict(color='black', width=1)
+                ),
+                name=row['metatype'].capitalize(),
+                text=hover_text,
+                hoverinfo='text',
+                hoverlabel=dict(bgcolor='white', font_size=12),
+                showlegend=False
+            ))
+    
+    # Add legend traces for metatypes
+    for metatype in sorted(unique_metatypes):
+        color = color_map.get(metatype, '#7f7f7f')
+        
+        fig.add_trace(go.Scatter(
+            x=[None],
+            y=[None],
+            mode='markers',
+            marker=dict(
+                color=color,
+                size=10,
+                line=dict(color='black', width=1)
+            ),
+            name=metatype.capitalize(),
+            showlegend=True
+        ))
+    
+    # Add legend for line styles
+    fig.add_trace(go.Scatter(
+        x=[None],
+        y=[None],
+        mode='lines',
+        line=dict(color='black', width=3),
+        name='Completed Position',
+        showlegend=True
+    ))
+    
+    fig.add_trace(go.Scatter(
+        x=[None],
+        y=[None],
+        mode='lines',
+        line=dict(color='black', width=3, dash='dash'),
+        name='Ongoing/No End Date',
+        showlegend=True
+    ))
+    
+    # Set y-axis ticks and labels
+    ytick_locs = list(metatype_to_y.values())
+    ytick_labels = [label.capitalize() for label in metatype_to_y.keys()]
+    
+    # Calculate min and max x values with some padding
+    x_min = df_sorted["timeline_date"].min() - 1
+    x_max = max(df_sorted["timeline_date"].max() + 1, 
+                df_sorted["numeric_end"].max() + 1 if "numeric_end" in df_sorted else 0)
+    
+    # Update layout
+    fig.update_layout(
+        title='Career Trajectory Timeline',
+        xaxis=dict(
+            title='Year',
+            gridcolor='lightgrey',
+            range=[x_min, x_max],
+            zeroline=False
+        ),
+        yaxis=dict(
+            title='',
+            tickvals=ytick_locs,
+            ticktext=ytick_labels,
+            gridcolor='#f0f0f0',
+            zeroline=False
+        ),
+        plot_bgcolor='#f8f9fa',
+        hovermode='closest',
+        legend=dict(
+            orientation='h',
+            yanchor='bottom',
+            y=1.02,
+            xanchor='right',
+            x=1
+        ),
+        margin=dict(l=20, r=20, t=60, b=20),
+        hoverlabel=dict(
+            bgcolor="white",
+            font_size=12
+        )
+    )
+    
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='lightgrey')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#f0f0f0')
+    
+    return fig
     """Create a career timeline visualization showing trajectory between different roles."""
     # Prepare data with adjusted positions for overlapping events
     df_sorted = prepare_visualization_data(df)
