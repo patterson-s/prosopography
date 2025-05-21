@@ -24,6 +24,15 @@ def main():
     if 'temp_file_path' not in st.session_state:
         st.session_state.temp_file_path = None
     
+    # Hide sidebar hamburger menu and footer
+    hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        </style>
+    """
+    st.markdown(hide_menu_style, unsafe_allow_html=True)
+    
     # File uploader
     uploaded_file = st.file_uploader("Upload career trajectory JSON file", type=["json"])
     
@@ -111,26 +120,8 @@ def display_visualizations(data: Dict[str, Any]):
         st.warning("Insufficient data points for visualization. Need at least 2 career events.")
         return
     
-    # Create sidebar for filtering options
-    st.sidebar.header("Filter Options")
-    
-    # Filter by metatype
-    available_metatypes = sorted(df_sorted["metatype"].unique())
-    selected_metatypes = st.sidebar.multiselect(
-        "Filter by career type",
-        options=available_metatypes,
-        default=available_metatypes
-    )
-    
-    # Apply filters
-    if selected_metatypes:
-        filtered_df = df_sorted[df_sorted["metatype"].isin(selected_metatypes)]
-    else:
-        filtered_df = df_sorted
-    
-    if len(filtered_df) < 1:
-        st.warning("No data points match the selected filters.")
-        return
+    # No filtering - always use the full dataset
+    filtered_df = df_sorted
     
     # Create and display career timeline visualization
     st.subheader(f"Career Timeline: {data['person']['name']}")
