@@ -165,7 +165,13 @@ def display_visualizations(data: Dict[str, Any]):
         if longest_role and longest_duration > 0:
             st.markdown("**Longest Role**")
             st.markdown(f"**{longest_role.get('role', 'Unknown Role')}** at **{longest_role.get('organization', 'Unknown Organization')}**")
-            st.markdown(f"**Duration:** {longest_duration:.1f} years")
+            
+            # Check if it's an open-ended position
+            if 'is_open_ended' in longest_role and longest_role['is_open_ended']:
+                st.markdown(f"**Duration:** Ongoing/No End Date (showing as {longest_duration:.1f} years)")
+            else:
+                st.markdown(f"**Duration:** {longest_duration:.1f} years")
+                
             st.markdown(f"**Type:** {longest_role.get('metatype', 'Unknown')}")
     
     with col2:
@@ -178,14 +184,19 @@ def display_visualizations(data: Dict[str, Any]):
     st.subheader("Career Events")
     
     # Create a clean table for display
-    display_df = filtered_df[["metatype", "organization", "role", "timeline_date", "start_date", "end_date"]].copy()
+    display_df = filtered_df.copy()
     display_df["year"] = display_df["timeline_date"].astype(int)
     
     # Calculate duration for each role
     def calculate_duration(row):
+        # First check if this is an open-ended position
+        if "is_open_ended" in row and row["is_open_ended"]:
+            return "Ongoing/No End Date"
+            
         # Use numeric_start and numeric_end if available (from the updated prepare_timeline_data)
         if "numeric_start" in row and "numeric_end" in row:
-            return row["numeric_end"] - row["numeric_start"]
+            duration = row["numeric_end"] - row["numeric_start"]
+            return f"{duration:.1f}"
         
         # Otherwise, fall back to original calculation
         start = row["start_date"] if row["start_date"] else row["timeline_date"]
@@ -194,22 +205,24 @@ def display_visualizations(data: Dict[str, Any]):
         try:
             start = float(start)
             end = float(end)
-            return max(end - start, 1)  # Minimum duration of 1 year for events with same start/end
+            duration = max(end - start, 1)  # Minimum duration of 1 year for events with same start/end
+            return f"{duration:.1f}"
         except (ValueError, TypeError):
-            return 1  # Default to 1 year if calculation fails
+            return "1.0"  # Default to 1 year if calculation fails
     
     display_df["duration"] = display_df.apply(calculate_duration, axis=1)
-    display_df["duration"] = display_df["duration"].round(1)
+    
+    # Add status column to indicate open-ended positions
+    display_df["status"] = "Completed"
+    if "is_open_ended" in filtered_df.columns:
+        display_df["status"] = filtered_df["is_open_ended"].apply(
+            lambda x: "Ongoing/No End Date" if x else "Completed")
     
     # Sort by year
     display_df = display_df.sort_values("year")
     
     # Display the table with better column names
-    display_columns = ["year", "metatype", "role", "organization", "duration"]
-    if "is_open_ended" in display_df.columns:
-        display_df["status"] = display_df["is_open_ended"].apply(
-            lambda x: "Ongoing/No End Date" if x else "Completed")
-        display_columns.append("status")
+    display_columns = ["year", "metatype", "role", "organization", "duration", "status"]
     
     st.dataframe(
         display_df[display_columns].rename(
