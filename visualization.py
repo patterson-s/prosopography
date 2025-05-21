@@ -71,49 +71,6 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
     # Create lists to populate the legend
     legend_elements = []
     
-    # Plot dots for each event
-    scatter = ax.scatter(
-        df_sorted["timeline_date"], 
-        df_sorted["y_adjusted"], 
-        color=df_sorted["color"], 
-        s=80,
-        alpha=0.8,
-        edgecolors='black',
-        linewidths=1,
-        zorder=10  # Ensure dots are on top
-    )
-    
-    # Plot trajectory arrows between consecutive events, only when appropriate
-    for i in range(len(df_sorted) - 1):
-        current = df_sorted.loc[i]
-        next_row = df_sorted.loc[i + 1]
-        
-        # Determine if we should draw a connection between these events
-        should_connect = True
-        
-        # Don't connect if current position is open-ended and next one starts more than 5 years later
-        if 'is_open_ended' in current and current['is_open_ended']:
-            if next_row['timeline_date'] > current['numeric_end'] + 3:
-                should_connect = False
-        
-        # Don't connect if there's a gap of more than 10 years between positions
-        if next_row['timeline_date'] - current['timeline_date'] > 10:
-            should_connect = False
-            
-        if should_connect:
-            ax.arrow(
-                current["timeline_date"], current["y_adjusted"],
-                next_row["timeline_date"] - current["timeline_date"],
-                next_row["y_adjusted"] - current["y_adjusted"],
-                length_includes_head=True,
-                head_width=0.2,
-                head_length=0.75,
-                fc=current["color"],
-                ec=current["color"],
-                alpha=0.7,
-                zorder=5
-            )
-    
     # Draw duration lines for each position
     completed_added = False
     ongoing_added = False
@@ -130,7 +87,7 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
                 [row['y_adjusted'], row['y_adjusted']], 
                 color=row['color'], 
                 linewidth=3, 
-                alpha=0.7,
+                alpha=0.8,
                 linestyle=linestyle,
                 zorder=3
             )[0]
@@ -148,6 +105,18 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
                                label='Completed Position')
                 )
                 completed_added = True
+    
+    # Plot dots for each event (after lines so they appear on top)
+    scatter = ax.scatter(
+        df_sorted["timeline_date"], 
+        df_sorted["y_adjusted"], 
+        color=df_sorted["color"], 
+        s=80,
+        alpha=0.9,
+        edgecolors='black',
+        linewidths=1,
+        zorder=10  # Ensure dots are on top
+    )
     
     # Add metatype colors to legend
     all_metatypes = list(metatype_to_y.keys())
