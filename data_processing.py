@@ -1,6 +1,6 @@
 import json
 import pandas as pd
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Dict, List, Tuple, Any, Optional, Union
 
 
 def load_json_file(file_path: str) -> Dict[str, Any]:
@@ -13,6 +13,63 @@ def load_json_file(file_path: str) -> Dict[str, Any]:
         raise ValueError("Invalid JSON file format")
     except Exception as e:
         raise IOError(f"Error reading file: {str(e)}")
+
+
+def extract_people_names(file_path: str) -> List[str]:
+    """Extract only the names of people from a JSON file efficiently."""
+    try:
+        data = load_json_file(file_path)
+        return _extract_names_from_data(data)
+    except Exception as e:
+        raise IOError(f"Error extracting people names: {str(e)}")
+
+
+def _extract_names_from_data(data: Any) -> List[str]:
+    """Helper function to extract person names from various data formats."""
+    names = []
+    
+    # Handle nested list structure: [[person1, person2, ...]]
+    if isinstance(data, list) and len(data) > 0:
+        # If first element is a list, we have a nested list
+        if isinstance(data[0], list):
+            for person in data[0]:  # Process first inner list
+                if isinstance(person, dict) and "person" in person and "name" in person["person"]:
+                    names.append(person["person"]["name"])
+        # If first element is a dict with 'person', we have a list of people
+        elif isinstance(data[0], dict) and "person" in data[0]:
+            for person in data:
+                if "name" in person["person"]:
+                    names.append(person["person"]["name"])
+    
+    # Handle single person structure
+    elif isinstance(data, dict) and "person" in data and "name" in data["person"]:
+        names.append(data["person"]["name"])
+    
+    return names
+
+
+def get_person_data(data: Any, person_name: str) -> Optional[Dict[str, Any]]:
+    """Extract data for a specific person from the dataset."""
+    # Handle nested list structure: [[person1, person2, ...]]
+    if isinstance(data, list) and len(data) > 0:
+        # If first element is a list, we have a nested list
+        if isinstance(data[0], list):
+            for person in data[0]:  # Process first inner list
+                if (isinstance(person, dict) and "person" in person and 
+                    "name" in person["person"] and person["person"]["name"] == person_name):
+                    return person
+        # If first element is a dict with 'person', we have a list of people
+        elif isinstance(data[0], dict) and "person" in data[0]:
+            for person in data:
+                if "name" in person["person"] and person["person"]["name"] == person_name:
+                    return person
+    
+    # Handle single person structure
+    elif (isinstance(data, dict) and "person" in data and 
+          "name" in data["person"] and data["person"]["name"] == person_name):
+        return data
+    
+    return None
 
 
 def validate_career_data(data: Dict[str, Any]) -> bool:
@@ -40,15 +97,6 @@ def validate_career_data(data: Dict[str, Any]) -> bool:
         return True
     except Exception:
         return False
-
-
-def extract_person_names(data_list: List[Dict[str, Any]]) -> List[str]:
-    """Extract list of person names from a list of career datasets."""
-    names = []
-    for data in data_list:
-        if validate_career_data(data) and "person" in data and "name" in data["person"]:
-            names.append(data["person"]["name"])
-    return names
 
 
 def prepare_timeline_data(data: Dict[str, Any]) -> Tuple[pd.DataFrame, Dict[str, float]]:
@@ -96,10 +144,3 @@ def prepare_timeline_data(data: Dict[str, Any]) -> Tuple[pd.DataFrame, Dict[str,
     df_sorted = df.sort_values(by="timeline_date").reset_index(drop=True)
     
     return df_sorted, metatype_to_y
-
-
-def get_person_data(data: Dict[str, Any], person_name: str) -> Optional[Dict[str, Any]]:
-    """Get data for a specific person from the full dataset."""
-    if data["person"]["name"] == person_name:
-        return data
-    return None

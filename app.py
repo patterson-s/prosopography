@@ -18,28 +18,41 @@ def main():
     # Set title
     st.title("Career Trajectory Visualization")
     
+    # Initialize session state for storing dataset
+    if 'dataset' not in st.session_state:
+        st.session_state.dataset = None
+    if 'temp_file_path' not in st.session_state:
+        st.session_state.temp_file_path = None
+    
     # File uploader
     uploaded_file = st.file_uploader("Upload career trajectory JSON file", type=["json"])
     
     if uploaded_file is not None:
         try:
             # Process uploaded file
-            data = process_uploaded_file(uploaded_file)
+            process_uploaded_file(uploaded_file)
             
-            # If data is valid, show person selector
-            if data:
-                # Extract person name from data
-                person_name = data["person"]["name"]
+            # If data is loaded, extract person names
+            if st.session_state.dataset is not None:
+                person_names = dp._extract_names_from_data(st.session_state.dataset)
                 
-                # Person selector (dropdown)
-                selected_person = st.selectbox(
-                    "Select person to visualize",
-                    [person_name]
-                )
-                
-                # Show visualization for selected person
-                if selected_person:
-                    display_visualizations(data)
+                if not person_names:
+                    st.error("No valid person data found in the uploaded file.")
+                else:
+                    # Person selector (dropdown)
+                    selected_person = st.selectbox(
+                        "Select person to visualize",
+                        person_names
+                    )
+                    
+                    # Get data for selected person
+                    if selected_person:
+                        person_data = dp.get_person_data(st.session_state.dataset, selected_person)
+                        
+                        if person_data and dp.validate_career_data(person_data):
+                            display_visualizations(person_data)
+                        else:
+                            st.error(f"Invalid or missing data for {selected_person}")
             
         except Exception as e:
             st.error(f"Error processing file: {str(e)}")
@@ -52,35 +65,41 @@ def main():
             if st.button("Use example data"):
                 example_data = dp.load_json_file("data/anand_panyarachun_career_subset.json")
                 if dp.validate_career_data(example_data):
+                    st.session_state.dataset = example_data
                     display_visualizations(example_data)
                 else:
                     st.error("Example data is not in the correct format.")
 
 
-def process_uploaded_file(uploaded_file) -> Dict[str, Any]:
-    """Process the uploaded JSON file."""
+def process_uploaded_file(uploaded_file) -> None:
+    """Process the uploaded JSON file and store in session state."""
     try:
         # Save uploaded file to a temporary file
-        with open("temp_upload.json", "wb") as f:
+        temp_file_path = "temp_upload.json"
+        with open(temp_file_path, "wb") as f:
             f.write(uploaded_file.getbuffer())
         
-        # Load and validate the data
-        data = dp.load_json_file("temp_upload.json")
+        # Store the temp file path in session state
+        st.session_state.temp_file_path = temp_file_path
         
-        if not dp.validate_career_data(data):
-            st.error("The uploaded file does not have the correct structure.")
-            return None
+        # Load the data
+        data = dp.load_json_file(temp_file_path)
         
-        return data
-    
+        # Store the dataset in session state
+        st.session_state.dataset = data
+        
     except Exception as e:
         st.error(f"Error processing file: {str(e)}")
-        return None
-    
-    finally:
-        # Clean up temporary file
-        if os.path.exists("temp_upload.json"):
-            os.remove("temp_upload.json")
+        if os.path.exists(temp_file_path):
+            os.remove(temp_file_path)
+        raise e
+
+
+def cleanup_temp_file():
+    """Clean up temporary file."""
+    if st.session_state.temp_file_path and os.path.exists(st.session_state.temp_file_path):
+        os.remove(st.session_state.temp_file_path)
+        st.session_state.temp_file_path = None
 
 
 def display_visualizations(data: Dict[str, Any]):
@@ -217,4 +236,7 @@ def display_visualizations(data: Dict[str, Any]):
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    finally:
+        cleanup_temp_file()

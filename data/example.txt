@@ -1,0 +1,1379 @@
+[
+  [
+    {
+      "person": {
+        "name": "Anand Panyarachun",
+        "metadata": {
+          "nationality": "Thai"
+        }
+      },
+      "career_events": [
+        {
+          "metatype": "academic",
+          "type": "academic_student",
+          "tags": [
+            "field_economics",
+            "global_north"
+          ],
+          "organization": "University of Cambridge",
+          "role": "Student",
+          "start_date": "",
+          "end_date": "1955",
+          "description": "Obtained Bachelor's degree in Economics",
+          "source_text": "BA: University of Cambridge, Class of 1955, Economics"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_civil_servant",
+          "tags": [
+            "field_foreign_affairs"
+          ],
+          "organization": "Ministry of Foreign Affairs, Thailand",
+          "role": "Unspecified Position",
+          "start_date": "1955",
+          "end_date": "1958",
+          "description": "",
+          "source_text": "Unspecified Position, Ministry of Foreign Affairs, 1955-1958"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_civil_servant",
+          "tags": [
+            "field_foreign_affairs"
+          ],
+          "organization": "Ministry of Foreign Affairs, Thailand",
+          "role": "Secretary to the Foreign Minister",
+          "start_date": "1958",
+          "end_date": "1964",
+          "description": "",
+          "source_text": "Secretary to the Foreign Minister, Ministry of Foreign Affairs, 1958-1964"
+        },
+        {
+          "metatype": "io",
+          "type": "io_diplomat",
+          "tags": [
+            "field_foreign_affairs"
+          ],
+          "organization": "Permanent Mission of Thailand to the United Nations",
+          "role": "Diplomat",
+          "start_date": "1964",
+          "end_date": "1967",
+          "description": "",
+          "source_text": "Permanent Mission of Thailand to the United Nations, 1964-1967"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_diplomat",
+          "tags": [
+            "field_foreign_affairs",
+            "global_north"
+          ],
+          "organization": "Royal Thai Embassy in Canada",
+          "role": "Ambassador to Canada",
+          "start_date": "1967",
+          "end_date": "1972",
+          "description": "",
+          "source_text": "Ambassador to Canada, 1967-1972"
+        },
+        {
+          "metatype": "io",
+          "type": "io_diplomat",
+          "tags": [
+            "field_foreign_affairs",
+            "leadership"
+          ],
+          "organization": "United Nations",
+          "role": "Ambassador of Thailand to the United Nations",
+          "start_date": "1967",
+          "end_date": "1976",
+          "description": "",
+          "source_text": "Ambassador of Thailand to the United Nations, 1967-1976"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_diplomat",
+          "tags": [
+            "field_foreign_affairs",
+            "global_north"
+          ],
+          "organization": "Royal Thai Embassy in the United States",
+          "role": "Ambassador to the United States",
+          "start_date": "1972",
+          "end_date": "1976",
+          "description": "",
+          "source_text": "Ambassador to the United States, 1972-1976"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_minister",
+          "tags": [
+            "field_foreign_affairs",
+            "leadership"
+          ],
+          "organization": "Thailand National Government",
+          "role": "Minister of Foreign Affairs",
+          "start_date": "1976",
+          "end_date": "1979",
+          "description": "",
+          "source_text": "Minister of Foreign Affairs, 1976-1979"
+        },
+        {
+          "metatype": "private",
+          "type": "private_executive",
+          "tags": [
+            "leadership"
+          ],
+          "organization": "Saha-Union Group",
+          "role": "Vice Chairman",
+          "start_date": "1979",
+          "end_date": "1991",
+          "description": "",
+          "source_text": "Vice Chairman, 1979-1991"
+        },
+        {
+          "metatype": "private",
+          "type": "private_board_member",
+          "tags": [
+            "field_finance"
+          ],
+          "organization": "Siam Commercial Bank",
+          "role": "Director",
+          "start_date": "1984",
+          "end_date": "",
+          "description": "",
+          "source_text": "Siam Commercial Bank Director, 1984-Present"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_head_of_state",
+          "tags": [
+            "leadership"
+          ],
+          "organization": "Thailand National Government",
+          "role": "Prime Minister",
+          "start_date": "1991",
+          "end_date": "1992",
+          "description": "",
+          "source_text": "Prime Minister, 1991-1992"
+        },
+        {
+          "metatype": "private",
+          "type": "private_executive",
+          "tags": [
+            "leadership"
+          ],
+          "organization": "Saha-Union Group",
+          "role": "Chairman of the Board of Directors",
+          "start_date": "1991",
+          "end_date": "",
+          "description": "",
+          "source_text": "Chairman of the Board of Directors, 1991-Present"
+        },
+        {
+          "metatype": "io",
+          "type": "io_ambassador",
+          "tags": [
+            "field_development"
+          ],
+          "organization": "UNICEF",
+          "role": "Ambassador for Thailand",
+          "start_date": "1996",
+          "end_date": "",
+          "description": "",
+          "source_text": "UNICEF Ambassador for Thailand, 1996-Present (?)"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_committee",
+          "tags": [
+            "field_governance"
+          ],
+          "organization": "Thai Constitution Drafting Assembly",
+          "role": "Member",
+          "start_date": "1997",
+          "end_date": "1997",
+          "description": "",
+          "source_text": "Member, Thai Constitution Drafting Assembly, 1997"
+        },
+        {
+          "metatype": "io",
+          "type": "io_committee",
+          "tags": [
+            "field_security",
+            "policy_advisor"
+          ],
+          "organization": "United Nations",
+          "role": "Member of High-Level Panel on Threats, Challenges and Change",
+          "start_date": "2003",
+          "end_date": "2004",
+          "description": "",
+          "source_text": "High-Level Panel on Threats, Challenges and Change, 2003-2004"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_committee",
+          "tags": [
+            "leadership"
+          ],
+          "organization": "National Reconciliation Commission, Thailand",
+          "role": "Chairman",
+          "start_date": "2005",
+          "end_date": "2006",
+          "description": "",
+          "source_text": "Chairman, National Reconciliation Commission, 2005-2006"
+        },
+        {
+          "metatype": "think_tank",
+          "type": "think_tank_member",
+          "tags": [
+            "policy_advisor",
+            "global_governance"
+          ],
+          "organization": "Trilateral Commission",
+          "role": "Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Member, Unspecified Dates"
+        },
+        {
+          "metatype": "private",
+          "type": "private_advisor",
+          "tags": [
+            "field_finance",
+            "global_north"
+          ],
+          "organization": "American International Group",
+          "role": "Member of the International Advisory Board",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Member of the International Advisory Board, Unspecified Dates"
+        },
+        {
+          "metatype": "private",
+          "type": "private_advisor",
+          "tags": [
+            "field_finance",
+            "global_north"
+          ],
+          "organization": "Carlyle Group",
+          "role": "Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Member, Unspecified Dates"
+        },
+        {
+          "metatype": "private",
+          "type": "private_advisor",
+          "tags": [
+            "field_finance",
+            "regional_asia_pacific"
+          ],
+          "organization": "Carlyle Group",
+          "role": "Member of the Advisory Board for Asia-Pacific",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Member of the Advisory Board for Asia-Pacific, Unspecified Dates"
+        }
+      ]
+    },
+    {
+      "person": {
+        "name": "Robert Badinter",
+        "metadata": {
+          "nationality": "French"
+        }
+      },
+      "career_events": [
+        {
+          "metatype": "academic",
+          "type": "academic_student",
+          "tags": [
+            "field_law",
+            "global_north"
+          ],
+          "organization": "University of Paris",
+          "role": "Student",
+          "start_date": "",
+          "end_date": "",
+          "description": "Obtained Law degree",
+          "source_text": "LLB: University of Paris, Unspecified Dates, Law"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_student",
+          "tags": [
+            "global_north"
+          ],
+          "organization": "Columbia University",
+          "role": "Student",
+          "start_date": "",
+          "end_date": "",
+          "description": "Obtained Master's degree",
+          "source_text": "MA: Columbia University, Unspecified Dates"
+        },
+        {
+          "metatype": "private",
+          "type": "private_lawyer",
+          "tags": [
+            "field_law"
+          ],
+          "organization": "Unspecified Law Practice",
+          "role": "Attorney",
+          "start_date": "1951",
+          "end_date": "1965",
+          "description": "",
+          "source_text": "Attorney, 1951-1965"
+        },
+        {
+          "metatype": "private",
+          "type": "private_founder",
+          "tags": [
+            "field_law",
+            "leadership"
+          ],
+          "organization": "Bredin Prat",
+          "role": "Co-Founder",
+          "start_date": "1965",
+          "end_date": "",
+          "description": "",
+          "source_text": "Co-Founder, 1965"
+        },
+        {
+          "metatype": "private",
+          "type": "private_lawyer",
+          "tags": [
+            "field_law"
+          ],
+          "organization": "Bredin Prat",
+          "role": "Attorney",
+          "start_date": "1965",
+          "end_date": "1981",
+          "description": "",
+          "source_text": "Attorney, 1965-1981"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_minister",
+          "tags": [
+            "field_justice",
+            "leadership"
+          ],
+          "organization": "French National Government",
+          "role": "Minister of Justice",
+          "start_date": "1981",
+          "end_date": "1986",
+          "description": "",
+          "source_text": "Minister of Justice, 1981-1986"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_judiciary",
+          "tags": [
+            "field_law",
+            "leadership"
+          ],
+          "organization": "French Constitutional Council",
+          "role": "President",
+          "start_date": "1986",
+          "end_date": "1995",
+          "description": "",
+          "source_text": "President, French Constitutional Council, 1986-1995"
+        },
+        {
+          "metatype": "io",
+          "type": "io_committee",
+          "tags": [
+            "field_peace",
+            "field_law"
+          ],
+          "organization": "European Union",
+          "role": "Member of the Arbitration Commission of the Peace Conference on Yugoslavia",
+          "start_date": "1991",
+          "end_date": "",
+          "description": "",
+          "source_text": "Member of the Arbitration Commission of the Peace Conference on Yugoslavia, 1991"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_legislator",
+          "tags": [
+            "field_governance"
+          ],
+          "organization": "French National Government",
+          "role": "Senator",
+          "start_date": "1995",
+          "end_date": "2011",
+          "description": "",
+          "source_text": "Senator, 1995-2011"
+        },
+        {
+          "metatype": "io",
+          "type": "io_judiciary",
+          "tags": [
+            "field_law",
+            "leadership"
+          ],
+          "organization": "Organization for Security and Cooperation in Europe",
+          "role": "President, Court of Conciliation and Arbitration",
+          "start_date": "1995",
+          "end_date": "2013",
+          "description": "",
+          "source_text": "President, Court of Conciliation and Arbitration, 1995-2013"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_society",
+          "tags": [
+            "field_philosophy"
+          ],
+          "organization": "American Philosophical Society",
+          "role": "Member",
+          "start_date": "2009",
+          "end_date": "",
+          "description": "",
+          "source_text": "Member, 2009-Present"
+        },
+        {
+          "metatype": "ngo",
+          "type": "ngo_leadership",
+          "tags": [
+            "field_justice",
+            "field_law"
+          ],
+          "organization": "World Justice Project",
+          "role": "Honourary Co-Chair",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Honourary Co-Chair, Unspecified Dates"
+        },
+        {
+          "metatype": "ngo",
+          "type": "ngo_member",
+          "tags": [
+            "field_justice",
+            "field_human_rights"
+          ],
+          "organization": "International Commission Against the Death Penalty",
+          "role": "Honourary Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Honourary Member, Unspecified Dates"
+        }
+      ]
+    },
+    {
+      "person": {
+        "name": "Gro Harlem Brundtland",
+        "metadata": {
+          "gender": "female",
+          "nationality": "Norwegian" 
+...
+
+{
+      "person": {
+        "name": "Keizo Takemi",
+        "metadata": {
+          "gender": "male",
+          "nationality": "Japanese"
+        }
+      },
+      "career_events": [
+        {
+          "metatype": "academic",
+          "type": "academic_education",
+          "tags": [
+            "field_law"
+          ],
+          "organization": "Keio University",
+          "role": "Student",
+          "start_date": "",
+          "end_date": "1974",
+          "description": "Obtained Bachelor of Laws (BLaw)",
+          "source_text": "BLaw: Keio University, 1974"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_education",
+          "tags": [
+            "field_law"
+          ],
+          "organization": "Keio University",
+          "role": "Student",
+          "start_date": "",
+          "end_date": "1976",
+          "description": "Obtained Master of Laws (LLM)",
+          "source_text": "LLM: Keio University, 1976"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_researcher",
+          "tags": [
+            "field_political_science",
+            "field_economics"
+          ],
+          "organization": "Tokai University",
+          "role": "Research Associate",
+          "start_date": "1980",
+          "end_date": "",
+          "description": "School of Political Science and Economics",
+          "source_text": "Tokai University Research Associate, School of Political Science and Economics, 1980"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_professor",
+          "tags": [],
+          "organization": "Tokai University",
+          "role": "Professor",
+          "start_date": "1995",
+          "end_date": "",
+          "description": "",
+          "source_text": "Professor, 1995"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_fellow",
+          "tags": [
+            "field_public_health",
+            "global_north"
+          ],
+          "organization": "Harvard University",
+          "role": "Visiting Fellow",
+          "start_date": "2007",
+          "end_date": "2009",
+          "description": "At Harvard School of Public Health",
+          "source_text": "Harvard University Visiting Fellow, Harvard School of Public Health, 2007-2009"
+        },
+        {
+          "metatype": "io",
+          "type": "io_member",
+          "tags": [
+            "field_health",
+            "field_children",
+            "field_women"
+          ],
+          "organization": "Commission on Information and Accountability for Women's and Children's Health",
+          "role": "Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Commission on Information and Accountability for Women's and Children's Health Member, unspecified dates"
+        },
+        {
+          "metatype": "io",
+          "type": "io_member",
+          "tags": [
+            "field_health",
+            "field_workforce"
+          ],
+          "organization": "Global Health Workforce Alliance (GHWA)",
+          "role": "Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Global Health Workforce Alliance (GHWA) Member, unspecified dates"
+        },
+        {
+          "metatype": "io",
+          "type": "io_chair",
+          "tags": [
+            "field_health",
+            "field_tuberculosis"
+          ],
+          "organization": "Asian Forum of Parliamentarians on Population and Development (AFPPD)",
+          "role": "Chair",
+          "start_date": "",
+          "end_date": "",
+          "description": "Of the parliamentary caucus on Stop TB Partnership",
+          "source_text": "Asian Forum of Parliamentarians on Population and Development (AFPPD) Chair of the parliamentary caucus on Stop TB Partnership, unspecified dates"
+        },
+        {
+          "metatype": "io",
+          "type": "io_commission_member",
+          "tags": [
+            "field_health",
+            "field_employment",
+            "field_economics"
+          ],
+          "organization": "United Nations",
+          "role": "Commission Member",
+          "start_date": "2016",
+          "end_date": "2016",
+          "description": "UN High Level Commission on Health Employment and Economic Growth",
+          "source_text": "United Nations UN High Level Commission on Health Employment and Economic Growth, 2016"
+        },
+        {
+          "metatype": "io",
+          "type": "io_committee_member",
+          "tags": [
+            "field_health",
+            "field_finance"
+          ],
+          "organization": "G20",
+          "role": "Committee Member",
+          "start_date": "2019",
+          "end_date": "2019",
+          "description": "UHC Financing Advisory Committee",
+          "source_text": "G20 UHC Financing Advisory Committee, 2019"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_elected_official",
+          "tags": [
+            "field_governance"
+          ],
+          "organization": "Japanese Government",
+          "role": "Elected to the House of Councillors",
+          "start_date": "1995",
+          "end_date": "",
+          "description": "",
+          "source_text": "Elected to the Japanese House of Councillors, 1995"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_civil_servant",
+          "tags": [
+            "field_foreign_affairs"
+          ],
+          "organization": "Japanese Government",
+          "role": "Parliamentary Secretary for Foreign Affairs",
+          "start_date": "1998",
+          "end_date": "1998",
+          "description": "",
+          "source_text": "Parliamentary Secretary for Foreign Affairs, 1998"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_minister",
+          "tags": [
+            "field_health",
+            "field_labor",
+            "field_welfare"
+          ],
+          "organization": "Japanese Government",
+          "role": "Senior Vice-Minister of Health, Labour and Welfare",
+          "start_date": "2006",
+          "end_date": "2006",
+          "description": "",
+          "source_text": "Senior Vice-Minister of Health, Labour and Welfare, 2006"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_committee_chair",
+          "tags": [
+            "field_foreign_affairs",
+            "field_defense"
+          ],
+          "organization": "Japanese House of Councillors",
+          "role": "Chairperson",
+          "start_date": "2001",
+          "end_date": "2001",
+          "description": "Committee on Foreign Affairs and Defense",
+          "source_text": "Chairperson, Committee on Foreign Affairs and Defense, Japanese House of Councillors, 2001"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_elected_official",
+          "tags": [
+            "field_governance"
+          ],
+          "organization": "Japanese Government",
+          "role": "Reelected to the House of Councillors",
+          "start_date": "2012",
+          "end_date": "2012",
+          "description": "",
+          "source_text": "Reelected to the House of Councillors, 2012"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_committee_chair",
+          "tags": [
+            "field_governance"
+          ],
+          "organization": "Japanese House of Councillors",
+          "role": "Chairperson",
+          "start_date": "2013",
+          "end_date": "2013",
+          "description": "Research Committee on Governing Structures",
+          "source_text": "Chairperson, Research Committee on Governing Structures, Japanese House of Councillors, 2013"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_committee_chair",
+          "tags": [
+            "field_ocean_policy"
+          ],
+          "organization": "Liberal Democratic Party (LDP)",
+          "role": "Chairperson",
+          "start_date": "2013",
+          "end_date": "2013",
+          "description": "Subcommittee on Ocean Policy",
+          "source_text": "Chairperson, Subcommittee on Ocean Policy, Liberal Democratic Party (LDP), 2013"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_committee_chair",
+          "tags": [
+            "field_health",
+            "field_global"
+          ],
+          "organization": "Liberal Democratic Party (LDP)",
+          "role": "Chairperson",
+          "start_date": "2014",
+          "end_date": "2014",
+          "description": "Special Mission Committee on Global Health Strategy",
+          "source_text": "Chairperson, Special Mission Committee on Global Health Strategy, LDP, 2014"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_committee_chair",
+          "tags": [
+            "field_health",
+            "field_global",
+            "field_policy"
+          ],
+          "organization": "Liberal Democratic Party (LDP)",
+          "role": "Chairperson",
+          "start_date": "2018",
+          "end_date": "2018",
+          "description": "Special Committee on Global Health Strategy, and Chairperson, LDP Policy Board in the House of Councillors",
+          "source_text": "Chairperson, Special Committee on Global Health Strategy, LDP and Chairperson, LDP Policy Board in the House of Councillors, LDP, 2018"
+        },
+        {
+          "metatype": "honor",
+          "type": "honor_ambassador",
+          "tags": [
+            "field_health",
+            "field_universal_health"
+          ],
+          "organization": "WHO",
+          "role": "Goodwill Ambassador",
+          "start_date": "2019",
+          "end_date": "",
+          "description": "For Universal Health Coverage (UHC)",
+          "source_text": "WHO Goodwill Ambassador for Universal Health Coverage (UHC), 2019"
+        },
+        {
+          "metatype": "think_tank",
+          "type": "think_tank_fellow",
+          "tags": [
+            "field_international_exchange"
+          ],
+          "organization": "Japan Center for International Exchange (JCIE)",
+          "role": "Senior Fellow",
+          "start_date": "2007",
+          "end_date": "",
+          "description": "",
+          "source_text": "Japan Center for International Exchange (JCIE) Senior Fellow, 2007-unspecified dates"
+        },
+        {
+          "metatype": "media",
+          "type": "media_anchor",
+          "tags": [
+            "field_television"
+          ],
+          "organization": "Unspecified TV programme",
+          "role": "Anchor",
+          "start_date": "1984",
+          "end_date": "1984",
+          "description": "",
+          "source_text": "Unspecified TV programme Anchor, 1984"
+        }
+      ]
+    },
+    {
+      "person": {
+        "name": "Lennart B\u00e5ge",
+        "metadata": {
+          "gender": "male",
+          "nationality": "Swedish"
+        }
+      },
+      "career_events": [
+        {
+          "metatype": "academic",
+          "type": "academic_education",
+          "tags": [
+            "field_business",
+            "field_economics"
+          ],
+          "organization": "Stockholm School of Economics",
+          "role": "Student",
+          "start_date": "1967",
+          "end_date": "1971",
+          "description": "Obtained MBA",
+          "source_text": "MBA: Stockholm School of Economics, 1967-1971"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_board_member",
+          "tags": [
+            "field_agriculture",
+            "field_science"
+          ],
+          "organization": "Swedish University of Agricultural Sciences(SLU)",
+          "role": "Member of the board",
+          "start_date": "2010",
+          "end_date": "2017",
+          "description": "",
+          "source_text": "Swedish University of Agricultural Sciences(SLU) Member of the board, 2010-2017"
+        },
+        {
+          "metatype": "io",
+          "type": "io_chair",
+          "tags": [
+            "field_governance",
+            "leadership"
+          ],
+          "organization": "United Nations",
+          "role": "Chair",
+          "start_date": "2002",
+          "end_date": "2008",
+          "description": "Of the UN System-wide High Level Committee on Programmes (HLCP)",
+          "source_text": "United Nations Chair of the UN System-wide High Level Committee on Programmes (HLCP), 2002-2008"
+        },
+        {
+          "metatype": "io",
+          "type": "io_president",
+          "tags": [
+            "field_agriculture",
+            "field_development",
+            "leadership"
+          ],
+          "organization": "International Fund for Agricultural Development",
+          "role": "President",
+          "start_date": "2001",
+          "end_date": "2009",
+          "description": "",
+          "source_text": "International Fund for Agricultural Development, IFAD President, 2001-2009"
+        },
+        {
+          "metatype": "io",
+          "type": "io_co_chair",
+          "tags": [
+            "field_climate",
+            "field_environment",
+            "leadership"
+          ],
+          "organization": "Green Climate Fund",
+          "role": "Co-Chair",
+          "start_date": "2018",
+          "end_date": "2018",
+          "description": "",
+          "source_text": "Green Climate Fund Co-Chair, 2018"
+        },
+        {
+          "metatype": "io",
+          "type": "io_chair",
+          "tags": [
+            "field_climate",
+            "field_fundraising",
+            "leadership"
+          ],
+          "organization": "Green Climate Fund",
+          "role": "Chair and Facilitator",
+          "start_date": "2014",
+          "end_date": "2014",
+          "description": "Of the Initial Resource Mobilization (IRM)",
+          "source_text": "Chair and Facilitator of the Initial Resource Mobilization (IRM) for the Green Climate Fund, 2014"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_civil_servant",
+          "tags": [
+            "field_foreign_affairs"
+          ],
+          "organization": "Ministry for Foreign Affairs",
+          "role": "Staff",
+          "start_date": "1974",
+          "end_date": "1980",
+          "description": "",
+          "source_text": "Ministry for Foreign Affairs, 1974-1980"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_leadership",
+          "tags": [
+            "field_research",
+            "field_development",
+            "leadership"
+          ],
+          "organization": "Swedish Agency for Research Cooperation with Developing Countries",
+          "role": "Director",
+          "start_date": "1980",
+          "end_date": "1989",
+          "description": "",
+          "source_text": "Swedish Agency for Research Cooperation with Developing Countries Director, 1980-1989"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_leadership",
+          "tags": [
+            "field_development",
+            "field_cooperation",
+            "leadership"
+          ],
+          "organization": "Ministry for Foreign Affairs",
+          "role": "Head of the Multilateral Department for Development Cooperation",
+          "start_date": "1990",
+          "end_date": "2001",
+          "description": "",
+          "source_text": "Head of the Multilateral Department for Development Cooperation, Ministry for Foreign Affairs, 1990-2001"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_leadership",
+          "tags": [
+            "field_development",
+            "field_cooperation",
+            "leadership"
+          ],
+          "organization": "Swedish International Development Cooperation Agency (SIDA)",
+          "role": "Vice Chair",
+          "start_date": "2010",
+          "end_date": "2017",
+          "description": "",
+          "source_text": "Swedish International Development Cooperation Agency (SIDA) Vice Chair, 2010-2017"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_leadership",
+          "tags": [
+            "field_development",
+            "field_cooperation",
+            "leadership"
+          ],
+          "organization": "Swedish International Development Cooperation Agency (SIDA)",
+          "role": "Acting Director General",
+          "start_date": "2016",
+          "end_date": "2017",
+          "description": "",
+          "source_text": "Acting Director General, 2016-2017"
+        },
+        {
+          "metatype": "think_tank",
+          "type": "think_tank_advisor",
+          "tags": [
+            "field_sustainability",
+            "leadership"
+          ],
+          "organization": "Global Challenge (Global Utmaning)",
+          "role": "Senior Advisor and Chairman of the Board",
+          "start_date": "2014",
+          "end_date": "2018",
+          "description": "",
+          "source_text": "Global Challenge (Global Utmaning) Senior Advisor and Chairman of the Board, 2014-2018"
+        }
+      ]
+    },
+    {
+      "person": {
+        "name": "Kemal Dervi\u015f",
+        "metadata": {
+          "gender": "male",
+          "nationality": "Turkish"
+        }
+      },
+      "career_events": [
+        {
+          "metatype": "academic",
+          "type": "academic_education",
+          "tags": [
+            "field_economics"
+          ],
+          "organization": "London School of Economics",
+          "role": "Student",
+          "start_date": "",
+          "end_date": "1969",
+          "description": "Obtained BSc",
+          "source_text": "BSc: London School of economics, 1969"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_education",
+          "tags": [
+            "field_economics"
+          ],
+          "organization": "London School of Economics",
+          "role": "Student",
+          "start_date": "",
+          "end_date": "1970",
+          "description": "Obtained MA",
+          "source_text": "MA: London School of economics, 1970"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_education",
+          "tags": [
+            "global_north"
+          ],
+          "organization": "Princeton University",
+          "role": "Student",
+          "start_date": "",
+          "end_date": "1973",
+          "description": "Obtained PhD",
+          "source_text": "PhD: Princeton University, 1973"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_professor",
+          "tags": [
+            "field_economics"
+          ],
+          "organization": "Middle East Technical University",
+          "role": "Assistant Professor of Economics",
+          "start_date": "1974",
+          "end_date": "1976",
+          "description": "",
+          "source_text": "Middle East Technical University Assistant Professor of Economics, 1974-1976"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_professor",
+          "tags": [
+            "global_north"
+          ],
+          "organization": "Princeton University",
+          "role": "Professor",
+          "start_date": "1976",
+          "end_date": "1978",
+          "description": "",
+          "source_text": "Princeton University Professor, 1976-1978"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_professor",
+          "tags": [],
+          "organization": "Bilkent University",
+          "role": "Visiting Professor",
+          "start_date": "1994",
+          "end_date": "1994",
+          "description": "",
+          "source_text": "Bilkent University Visiting Professor, 1994"
+        },
+        {
+          "metatype": "io",
+          "type": "io_leadership",
+          "tags": [
+            "field_industry",
+            "field_trade",
+            "field_strategy",
+            "leadership"
+          ],
+          "organization": "World Bank",
+          "role": "Division Chief",
+          "start_date": "",
+          "end_date": "",
+          "description": "For Industrial and Trade Strategy",
+          "source_text": "World Bank Division Chief for Industrial and Trade Strategy"
+        },
+        {
+          "metatype": "io",
+          "type": "io_leadership",
+          "tags": [
+            "field_development",
+            "regional_europe",
+            "leadership"
+          ],
+          "organization": "World Bank",
+          "role": "Director",
+          "start_date": "",
+          "end_date": "",
+          "description": "For the Central Europe Department",
+          "source_text": "Director for the Central Europe Department"
+        },
+        {
+          "metatype": "io",
+          "type": "io_leadership",
+          "tags": [
+            "field_development",
+            "regional_middle_east",
+            "regional_africa",
+            "leadership"
+          ],
+          "organization": "World Bank",
+          "role": "Vice President",
+          "start_date": "",
+          "end_date": "",
+          "description": "For the Middle East and North Africa Region",
+          "source_text": "Vice President for the Middle East and North Africa Region"
+        },
+        {
+          "metatype": "io",
+          "type": "io_leadership",
+          "tags": [
+            "field_economics",
+            "field_poverty",
+            "field_development",
+            "leadership"
+          ],
+          "organization": "World Bank",
+          "role": "Vice President",
+          "start_date": "",
+          "end_date": "",
+          "description": "For Poverty Reduction and Economic Management",
+          "source_text": "Vice President for Poverty Reduction and Economic Management"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_minister",
+          "tags": [
+            "field_economics",
+            "leadership"
+          ],
+          "organization": "Turkish Government",
+          "role": "Minister of Economic Affairs",
+          "start_date": "2001",
+          "end_date": "2002",
+          "description": "57th Government of the Republic of Turkey",
+          "source_text": "Turkish Government Minister of Economic Affairs, 57th Government of the Republic of Turkey, 2001-2002"
+        },
+        {
+          "metatype": "govt",
+          "type": "govt_elected_official",
+          "tags": [
+            "field_governance"
+          ],
+          "organization": "Turkish Government",
+          "role": "Member of Parliament",
+          "start_date": "2002",
+          "end_date": "2005",
+          "description": "Representing Istanbul",
+          "source_text": "Member of the Turkish Parliament representing Istanbul, 2002-2005"
+        },
+        {
+          "metatype": "io",
+          "type": "io_chair",
+          "tags": [
+            "field_development",
+            "leadership"
+          ],
+          "organization": "United Nations Development Program (UNDP)",
+          "role": "Chair",
+          "start_date": "2005",
+          "end_date": "2009",
+          "description": "",
+          "source_text": "United Nations Development Program (UNDP) Chair, 2005-2009"
+        },
+        {
+          "metatype": "io",
+          "type": "io_leadership",
+          "tags": [
+            "field_development",
+            "leadership"
+          ],
+          "organization": "United Nations Development Program (UNDP)",
+          "role": "Head",
+          "start_date": "2005",
+          "end_date": "2009",
+          "description": "",
+          "source_text": "Head, 2005-2009"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_professor",
+          "tags": [
+            "global_north"
+          ],
+          "organization": "Columbia University",
+          "role": "Adjunct Professor",
+          "start_date": "2009",
+          "end_date": "2015",
+          "description": "",
+          "source_text": "Columbia University Adjunct Professor, 2009-2015"
+        },
+        {
+          "metatype": "think_tank",
+          "type": "think_tank_leadership",
+          "tags": [
+            "field_economics",
+            "field_global",
+            "field_development",
+            "leadership"
+          ],
+          "organization": "The Brookings Institution",
+          "role": "Vice President and Director",
+          "start_date": "2009",
+          "end_date": "2017",
+          "description": "Global Economy and Development",
+          "source_text": "The Brookings Institution Vice President and Director, Global Economy and Development, 2009-2017"
+        },
+        {
+          "metatype": "think_tank",
+          "type": "think_tank_fellow",
+          "tags": [
+            "field_economics",
+            "field_global",
+            "field_development"
+          ],
+          "organization": "The Brookings Institution",
+          "role": "Senior Fellow and Edward M. Bernstein Scholar",
+          "start_date": "",
+          "end_date": "",
+          "description": "Global Economy and Development",
+          "source_text": "Senior Fellow and Edward M. Bernstein Scholar, Global Economy and Development, unspecified dates"
+        },
+        {
+          "metatype": "academic",
+          "type": "academic_advisor",
+          "tags": [],
+          "organization": "Sabanci University",
+          "role": "Advisory Board Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Sabanci University Advisory Board Member, unspecified dates"
+        },
+        {
+          "metatype": "think_tank",
+          "type": "think_tank_advisor",
+          "tags": [
+            "field_policy"
+          ],
+          "organization": "Istanbul Policy Center",
+          "role": "Senior Advisor",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Senior Advisor, Istanbul Policy Center, unspecified dates"
+        },
+        {
+          "metatype": "private",
+          "type": "private_advisor",
+          "tags": [
+            "field_finance"
+          ],
+          "organization": "Criteria Caixa",
+          "role": "Advisory Board Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Criteria Caixa Advisory Board Member, unspecified dates"
+        },
+        {
+          "metatype": "think_tank",
+          "type": "think_tank_advisor",
+          "tags": [
+            "field_economics",
+            "regional_mediterranean"
+          ],
+          "organization": "Institut de Prospective Economique du Monde M\u00e9diterran\u00e9en",
+          "role": "Advisory Board Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Institut de Prospective Economique du Monde M\u00e9diterran\u00e9en Advisory Board Member, unspecified dates"
+        },
+        {
+          "metatype": "think_tank",
+          "type": "think_tank_advisor",
+          "tags": [
+            "field_international_relations"
+          ],
+          "organization": "Institut du Bosphore",
+          "role": "Advisory Board Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Institut du Bosphore Advisory Board Member, unspecified dates"
+        },
+        {
+          "metatype": "private",
+          "type": "private_advisor",
+          "tags": [
+            "field_banking"
+          ],
+          "organization": "Akbank",
+          "role": "Advisory Board Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Akbank Advisory Board Member, unspecified dates"
+        },
+        {
+          "metatype": "ngo",
+          "type": "ngo_advisor",
+          "tags": [
+            "field_arts"
+          ],
+          "organization": "Guggenheim International",
+          "role": "Advisory Board Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Guggenheim International Advisory Board Member, unspecified dates"
+        },
+        {
+          "metatype": "private",
+          "type": "private_advisor",
+          "tags": [
+            "field_resources",
+            "field_minerals"
+          ],
+          "organization": "Office Cherifien des Phosphates",
+          "role": "Advisory Board Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Office Cherifien des Phosphates Advisory Board Member, unspecified dates"
+        },
+        {
+          "metatype": "think_tank",
+          "type": "think_tank_advisor",
+          "tags": [
+            "field_development",
+            "field_global"
+          ],
+          "organization": "Center for Global Development",
+          "role": "Advisory Board Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Center for Global Development Advisory Board Member, unspecified dates"
+        },
+        {
+          "metatype": "private",
+          "type": "private_advisor",
+          "tags": [],
+          "organization": "Abengoa",
+          "role": "Advisory Board Member",
+          "start_date": "",
+          "end_date": "",
+          "description": "",
+          "source_text": "Abengoa Advisory Board Member, unspecified dates"
+        },
+        {
+          "metatype": "honor",
+          "type": "honor_award",
+          "tags": [
+            "field_international"
+          ],
+          "organization": "Japan",
+          "role": "Recipient",
+          "start_date": "2009",
+          "end_date": "",
+          "description": "Order of the Rising Sun, Grand Cordon",
+          "source_text": "Order of the Rising Sun, Grand Cordon (Japan), 2009"
+        },
+        {
+          "metatype": "honor",
+          "type": "honor_award",
+          "tags": [
+            "field_civil_merit"
+          ],
+          "organization": "Spain",
+          "role": "Recipient",
+          "start_date": "2011",
+          "end_date": "",
+          "description": "Order of Civil Merit, Grand Cross",
+          "source_text": "Order of Civil Merit, Grand Cross (Spain), 2011"
+        }
+      ]
+    }
+  ]
+]
