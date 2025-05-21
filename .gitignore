@@ -1,0 +1,6 @@
+"__pycache__/" 
+"*.pyc" 
+".DS_Store" 
+"temp/" 
+".streamlit/" 
+"temp_upload.json" 
