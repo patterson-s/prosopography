@@ -105,13 +105,14 @@ def prepare_timeline_data(data: Dict[str, Any]) -> Tuple[pd.DataFrame, Dict[str,
     
     # Process the events into a list of dictionaries
     processed_events = []
+    current_year = 2025  # Upper limit for open-ended positions
     
     for event in events:
         # Skip events without dates
         if not event["start_date"] and not event["end_date"]:
             continue
             
-        # Use the earliest date available for timeline
+        # Use the earliest date available for timeline positioning
         timeline_date = event["start_date"] if event["start_date"] else event["end_date"]
         
         # Try to convert timeline_date to numeric
@@ -120,14 +121,41 @@ def prepare_timeline_data(data: Dict[str, Any]) -> Tuple[pd.DataFrame, Dict[str,
         except ValueError:
             # Skip events with non-numeric dates
             continue
+        
+        # Handle end dates - set a reasonable end date for open-ended positions
+        start_date = event["start_date"]
+        end_date = event["end_date"]
+        
+        try:
+            # Convert start and end dates to float if they exist
+            numeric_start = float(start_date) if start_date else timeline_date
+            
+            # For missing end dates, estimate a reasonable duration
+            if not end_date:
+                # If this is current (open-ended), use current year
+                # For visualization purposes, limit to +5 years from start
+                numeric_end = min(numeric_start + 5, current_year)
+            else:
+                numeric_end = float(end_date)
+            
+            # Ensure end is not before start
+            if numeric_end < numeric_start:
+                numeric_end = numeric_start + 1
+        except ValueError:
+            # Handle any conversion errors
+            numeric_start = timeline_date
+            numeric_end = timeline_date + 3  # Default 3-year duration
             
         processed_events.append({
             "metatype": event["metatype"],
             "organization": event["organization"],
             "role": event["role"],
             "timeline_date": timeline_date,
-            "start_date": event["start_date"],
-            "end_date": event["end_date"]
+            "start_date": start_date,
+            "end_date": end_date,
+            "numeric_start": numeric_start,
+            "numeric_end": numeric_end,
+            "is_open_ended": not bool(end_date)
         })
     
     # Create DataFrame

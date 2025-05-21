@@ -68,23 +68,7 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
     # Create figure
     fig, ax = plt.subplots(figsize=(12, 6))
     
-    # Plot trajectory arrows between events
-    for i in range(len(df_sorted) - 1):
-        current = df_sorted.loc[i]
-        next_row = df_sorted.loc[i + 1]
-        ax.arrow(
-            current["timeline_date"], current["y_adjusted"],
-            next_row["timeline_date"] - current["timeline_date"],
-            next_row["y_adjusted"] - current["y_adjusted"],
-            length_includes_head=True,
-            head_width=0.2,
-            head_length=0.75,
-            fc=current["color"],
-            ec=current["color"],
-            alpha=0.7
-        )
-    
-    # Plot dots for each adjusted position
+    # Plot dots for each event
     scatter = ax.scatter(
         df_sorted["timeline_date"], 
         df_sorted["y_adjusted"], 
@@ -92,8 +76,68 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
         s=80,
         alpha=0.8,
         edgecolors='black',
-        linewidths=1
+        linewidths=1,
+        zorder=10  # Ensure dots are on top
     )
+    
+    # Plot trajectory arrows between consecutive events, only when appropriate
+    for i in range(len(df_sorted) - 1):
+        current = df_sorted.loc[i]
+        next_row = df_sorted.loc[i + 1]
+        
+        # Determine if we should draw a connection between these events
+        should_connect = True
+        
+        # Don't connect if current position is open-ended and next one starts more than 5 years later
+        if 'is_open_ended' in current and current['is_open_ended']:
+            if next_row['timeline_date'] > current['numeric_end'] + 3:
+                should_connect = False
+        
+        # Don't connect if there's a gap of more than 10 years between positions
+        if next_row['timeline_date'] - current['timeline_date'] > 10:
+            should_connect = False
+            
+        if should_connect:
+            ax.arrow(
+                current["timeline_date"], current["y_adjusted"],
+                next_row["timeline_date"] - current["timeline_date"],
+                next_row["y_adjusted"] - current["y_adjusted"],
+                length_includes_head=True,
+                head_width=0.2,
+                head_length=0.75,
+                fc=current["color"],
+                ec=current["color"],
+                alpha=0.7,
+                zorder=5
+            )
+    
+    # Draw duration lines for each position
+    for i, row in df_sorted.iterrows():
+        if 'numeric_start' in row and 'numeric_end' in row:
+            # Draw horizontal line indicating position duration
+            ax.plot(
+                [row['numeric_start'], row['numeric_end']], 
+                [row['y_adjusted'], row['y_adjusted']], 
+                color=row['color'], 
+                linewidth=2, 
+                alpha=0.6,
+                zorder=3
+            )
+            
+            # For open-ended positions, add a small arrow at the end
+            if 'is_open_ended' in row and row['is_open_ended']:
+                ax.annotate(
+                    '', 
+                    xy=(row['numeric_end'], row['y_adjusted']), 
+                    xytext=(row['numeric_end'] - 1, row['y_adjusted']),
+                    arrowprops=dict(
+                        arrowstyle='->',
+                        color=row['color'],
+                        alpha=0.6,
+                        lw=2
+                    ),
+                    zorder=4
+                )
     
     # Format y-ticks to align with base metatype labels - fixed method
     ytick_locs = list(metatype_to_y.values())
@@ -113,7 +157,8 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
     
     # Set the x-axis range with some padding
     x_min = df_sorted["timeline_date"].min() - 1
-    x_max = df_sorted["timeline_date"].max() + 1
+    x_max = max(df_sorted["timeline_date"].max() + 1, 
+                df_sorted["numeric_end"].max() + 1 if "numeric_end" in df_sorted else 0)
     ax.set_xlim(x_min, x_max)
     
     # Clean up y-axis appearance - fixed method

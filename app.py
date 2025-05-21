@@ -183,6 +183,11 @@ def display_visualizations(data: Dict[str, Any]):
     
     # Calculate duration for each role
     def calculate_duration(row):
+        # Use numeric_start and numeric_end if available (from the updated prepare_timeline_data)
+        if "numeric_start" in row and "numeric_end" in row:
+            return row["numeric_end"] - row["numeric_start"]
+        
+        # Otherwise, fall back to original calculation
         start = row["start_date"] if row["start_date"] else row["timeline_date"]
         end = row["end_date"] if row["end_date"] else row["timeline_date"]
         
@@ -200,14 +205,21 @@ def display_visualizations(data: Dict[str, Any]):
     display_df = display_df.sort_values("year")
     
     # Display the table with better column names
+    display_columns = ["year", "metatype", "role", "organization", "duration"]
+    if "is_open_ended" in display_df.columns:
+        display_df["status"] = display_df["is_open_ended"].apply(
+            lambda x: "Ongoing/No End Date" if x else "Completed")
+        display_columns.append("status")
+    
     st.dataframe(
-        display_df[["year", "metatype", "role", "organization", "duration"]].rename(
+        display_df[display_columns].rename(
             columns={
                 "year": "Year",
                 "metatype": "Type",
                 "role": "Role",
                 "organization": "Organization",
-                "duration": "Duration (Years)"
+                "duration": "Duration (Years)",
+                "status": "Status"
             }
         ),
         use_container_width=True
