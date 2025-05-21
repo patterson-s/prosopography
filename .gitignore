@@ -4,3 +4,4 @@
 "temp/" 
 ".streamlit/" 
 "temp_upload.json" 
+"data/" 
