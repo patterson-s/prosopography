@@ -95,10 +95,13 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
         linewidths=1
     )
     
-    # Format y-ticks to align with base metatype labels
+    # Format y-ticks to align with base metatype labels - fixed method
     ytick_locs = list(metatype_to_y.values())
     ytick_labels = list(metatype_to_y.keys())
-    ax.set_yticks(ticks=ytick_locs, labels=ytick_labels)
+    
+    # Set the ticks and then manually set the labels (compatible with newer matplotlib)
+    ax.set_yticks(ytick_locs)
+    ax.set_yticklabels(ytick_labels)
     
     # Set labels and title
     ax.set_xlabel("Year")
@@ -113,9 +116,9 @@ def plot_career_timeline(df: pd.DataFrame, metatype_to_y: Dict[str, float]) -> T
     x_max = df_sorted["timeline_date"].max() + 1
     ax.set_xlim(x_min, x_max)
     
-    # Clean up y-axis appearance
-    for tick in ax.yaxis.get_major_ticks():
-        tick.label.set_fontweight('bold')
+    # Clean up y-axis appearance - fixed method
+    for label in ax.get_yticklabels():
+        label.set_fontweight('bold')
     
     # Add a light background
     ax.set_facecolor('#f8f9fa')
