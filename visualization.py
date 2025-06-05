@@ -63,7 +63,7 @@ def prepare_visualization_data(df: pd.DataFrame) -> pd.DataFrame:
     return df_sorted
 
 
-def plot_career_timeline_plotly(df: pd.DataFrame, metatype_to_y: Dict[str, float]):
+def plot_career_timeline_plotly(df: pd.DataFrame, metatype_to_y: Dict[str, float], person_data: Dict[str, Any] = None):
     """Create an interactive career timeline visualization with hover information using Plotly."""
     # Prepare data with adjusted positions for overlapping events
     df_sorted = prepare_visualization_data(df)
@@ -122,6 +122,47 @@ def plot_career_timeline_plotly(df: pd.DataFrame, metatype_to_y: Dict[str, float
                 hoverlabel=dict(bgcolor='white', font_size=12),
                 showlegend=False
             ))
+    
+    # Add HLP year vertical line if available
+    if person_data and 'person' in person_data and 'metadata' in person_data['person']:
+        hlp_year = person_data['person']['metadata'].get('hlp_year')
+        hlp_name = person_data['person']['metadata'].get('hlp', 'High-Level Panel')
+        
+        if hlp_year:
+            try:
+                hlp_year_numeric = float(hlp_year)
+                
+                # Add vertical line for HLP year
+                fig.add_vline(
+                    x=hlp_year_numeric,
+                    line=dict(
+                        color='red',
+                        width=3,
+                        dash='dot'
+                    ),
+                    annotation_text=f"HLP: {hlp_year}",
+                    annotation_position="top",
+                    annotation=dict(
+                        font=dict(size=12, color='red'),
+                        bgcolor='white',
+                        bordercolor='red',
+                        borderwidth=1
+                    )
+                )
+                
+                # Add HLP year to legend
+                fig.add_trace(go.Scatter(
+                    x=[None],
+                    y=[None],
+                    mode='lines',
+                    line=dict(color='red', width=3, dash='dot'),
+                    name=f'HLP Year ({hlp_year})',
+                    showlegend=True
+                ))
+                
+            except (ValueError, TypeError):
+                # Skip if hlp_year cannot be converted to numeric
+                pass
     
     # Add legend traces for metatypes
     for metatype in sorted(unique_metatypes):
@@ -204,6 +245,9 @@ def plot_career_timeline_plotly(df: pd.DataFrame, metatype_to_y: Dict[str, float
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#f0f0f0')
     
     return fig
+
+
+def plot_career_timeline_matplotlib(df: pd.DataFrame, metatype_to_y: Dict[str, float]):
     """Create a career timeline visualization showing trajectory between different roles."""
     # Prepare data with adjusted positions for overlapping events
     df_sorted = prepare_visualization_data(df)

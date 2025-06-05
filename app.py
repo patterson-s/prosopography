@@ -123,11 +123,31 @@ def display_visualizations(data: Dict[str, Any]):
     # No filtering - always use the full dataset
     filtered_df = df_sorted
     
-    # Create and display career timeline visualization
-    st.subheader(f"Career Timeline: {data['person']['name']}")
+    # Create enhanced header with person metadata
+    person_name = data['person']['name']
     
-    # Create a clean interactive visualization with the filtered data
-    fig = viz.plot_career_timeline_plotly(filtered_df, metatype_to_y)
+    # Extract metadata if available
+    metadata = data.get('person', {}).get('metadata', {})
+    nationality = metadata.get('nationality', '')
+    hlp_name = metadata.get('hlp', '')
+    
+    # Create the main header
+    st.subheader(f"Career Timeline: {person_name}")
+    
+    # Create metadata display
+    metadata_parts = []
+    if nationality:
+        metadata_parts.append(f"🌍 {nationality}")
+    if hlp_name:
+        metadata_parts.append(f"📋 High-Level Panel: {hlp_name}")
+    
+    if metadata_parts:
+        metadata_text = " | ".join(metadata_parts)
+        st.markdown(f"<div style='color: #666; font-size: 1.1em; margin-bottom: 1rem;'>{metadata_text}</div>", 
+                   unsafe_allow_html=True)
+    
+    # Create and display career timeline visualization with HLP year line
+    fig = viz.plot_career_timeline_plotly(filtered_df, metatype_to_y, data)
     st.plotly_chart(fig, use_container_width=True)
     
     # Find longest role
